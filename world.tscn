@@ -1,9 +1,40 @@
-[gd_scene format=3 uid="uid://c455ovfb2wejl"]
+[gd_scene load_steps=4 format=3 uid="uid://c455ovfb2wejl"]
+
+[ext_resource type="PackedScene" uid="uid://6wc2bdm6a15u" path="res://Player/Player.tscn" id="1_g2tnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0eld"]
+size = Vector2(291.794, 72.4388)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_weipo"]
+size = Vector2(74.2542, 233.931)
 
 [node name="World" type="Node2D"]
 position = Vector2(-1, 0)
+scale = Vector2(1.52819, 1.58754)
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "This is the first scene"
+[node name="Player" parent="." instance=ExtResource("1_g2tnv")]
+position = Vector2(257.168, 60.471)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(294.48, 231.805)
+scale = Vector2(2.00477, 1.29588)
+shape = SubResource("RectangleShape2D_f0eld")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-35.9904, 90.7064)
+scale = Vector2(2.00477, 1.29588)
+shape = SubResource("RectangleShape2D_weipo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(618.38, 85.6672)
+scale = Vector2(2.00477, 1.29588)
+shape = SubResource("RectangleShape2D_weipo")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 42.5341
+offset_top = 186.452
+offset_right = 82.5341
+offset_bottom = 226.452
+scale = Vector2(12.6486, 1.05019)

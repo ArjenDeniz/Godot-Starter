@@ -1,0 +1,94 @@
+[gd_scene load_steps=18 format=3 uid="uid://6wc2bdm6a15u"]
+
+[ext_resource type="Texture2D" uid="uid://dycwdaob6uufg" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/hurt/player-hurt-1.png" id="1_1oacu"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_so2wr"]
+[ext_resource type="Texture2D" uid="uid://v53oc211c6wg" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/hurt/player-hurt-2.png" id="2_yn5q2"]
+[ext_resource type="Texture2D" uid="uid://jir0h7kfjfc4" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-1.png" id="3_ydnb0"]
+[ext_resource type="Texture2D" uid="uid://bp44intomxtq1" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-2.png" id="4_42dw1"]
+[ext_resource type="Texture2D" uid="uid://mbsop5j0p5v6" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-3.png" id="5_nrjkr"]
+[ext_resource type="Texture2D" uid="uid://wdxow2c3t31v" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-4.png" id="6_gm7nr"]
+[ext_resource type="Texture2D" uid="uid://cqry68pv3lr1d" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/jump/player-jump-1.png" id="7_l5svn"]
+[ext_resource type="Texture2D" uid="uid://b37jcuucm7obk" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/jump/player-jump-2.png" id="8_6gpxe"]
+[ext_resource type="Texture2D" uid="uid://ia1ruuf3au48" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-1.png" id="9_w0ak5"]
+[ext_resource type="Texture2D" uid="uid://u3fcmbi5eqy1" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-2.png" id="10_ttars"]
+[ext_resource type="Texture2D" uid="uid://ph2qo6rih3sm" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-3.png" id="11_qefh0"]
+[ext_resource type="Texture2D" uid="uid://dk283mhrxwcan" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-4.png" id="12_idjo2"]
+[ext_resource type="Texture2D" uid="uid://qpscyej5umbm" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-5.png" id="13_2vxu8"]
+[ext_resource type="Texture2D" uid="uid://dt1x8oo0p8mbr" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/sprites/player/run/player-run-6.png" id="14_n5wst"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tpgp1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xv7ys"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1oacu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yn5q2")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ydnb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_42dw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nrjkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gm7nr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_l5svn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6gpxe")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_w0ak5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ttars")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qefh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_idjo2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2vxu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_n5wst")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_so2wr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_tpgp1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xv7ys")
+animation = &"Idle"
